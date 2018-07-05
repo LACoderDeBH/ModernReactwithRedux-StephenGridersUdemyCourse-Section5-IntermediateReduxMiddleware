@@ -6,7 +6,7 @@ export default function(state = [], action) {
 //account for string inputs that aren't cities
   if (action.error) {
   return state;
-  }
+}
 
   switch(action.type) {
     case FETCH_WEATHER:

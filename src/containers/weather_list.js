@@ -1,19 +1,30 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 class WeatherList extends Component {
-  //one city object and all of its data
+  //render one city object and all of its data
   renderWeather(cityData) {
     //It's an aray. We're rendering a list and wehnever we have
     //a list we need to provide a unique key property
     //rule behind adding a key on a react list we add it to the top
     //level element in teh list and it has to be some unique piece of cityData
-    //here the city name 
+    //here the city name
     const name = cityData.city.name;
+    //map over cityData.list and each object are passed into funcion as
+    //argument weather which will return the temperature
+    const temps = cityData.list.map(weather => weather.main.temp);
+    console.log(temps);
+
     return (
       <tr key={name}>
         <td>{name}</td>
-        </tr>
+        <td>
+          <Sparklines height={120} width={180} data={temps}>
+            <SparklinesLine color="red" />
+          </Sparklines>
+        </td>
+      </tr>
     );
 }
 

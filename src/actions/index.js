@@ -4,7 +4,7 @@ const API_KEY = '742d7f8cceb30b6ef7324ad5f77ebf6c';
 const ROOT_URL = `https://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
 
 
-export const FETCH_WEATHER = 'FETCH_WEATHER';
+export const FETCH_WEATHER = "FETCH_WEATHER";
 
 //actionCreator: create action that fetches weather data
 export function fetchWeather(city) {
